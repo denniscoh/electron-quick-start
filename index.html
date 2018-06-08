@@ -6,10 +6,32 @@
   </head>
   <body>
     <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+
+    <p>
+      Try typing into the &lt;INPUT&gt; field below while VoiceOver is running. VO *should* echo each characeter
+      as you type - but it doesn't.
+    </p>
+
+    <input autofocus />
+
+    <p>
+      Issue also repros with &lt;TEXTAREA&gt;
+    </p>
+
+    <textarea> </textarea>
+
+    <p>
+      ...and contenteditable DIVs
+    </p>
+
+    <div contenteditable="true" style="border: 1px solid black; height: 40px; width: 300px;"></div>
+
+    <p>
+      VO does announce the current character as you move the caret around using the arrow keys; but doesn't announce
+      as input is typed.
+    </p>
+
+
 
     <script>
       // You can also require other files to run in this process
