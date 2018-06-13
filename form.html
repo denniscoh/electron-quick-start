@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Login form</title>
+  </head>
+  <body>
+    <h1>Pretend login form...</h1>
+    <p>
+      This is a simple form that does a window.location.reload() when
+      submitted.
+    </p>
+    <p>
+      It works fine with JAWS as initially loaded - JAWS calls
+      out the input field names as they receive focus. But on reload,
+      JAWS no longer tracks focus properly - and doesn't call out the name or
+      type of current focused element. JAWS doesn't even enter forms mode;
+      if you press 'H' while focus is on one of the inputs, no 'h' appears,
+      instead JAWS moves to the Heading at the top of the page.
+    </p>
+    <p>
+      To restore JAWS functionality, user must focus some other app, seems to
+      be necessary to switch to some other app, then switch back to the electron
+      app, and click on one of the fields.
+    </p>
+
+    <form id="form">
+      <div>
+        <label>
+          Username
+          <input id="ip1"/>
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Password
+          <input />
+        </label>
+      </div>
+
+      <br>
+      <button>Login</button>
+    </form>
+
+    <script>
+      // Optional code to auto-focus input field on reload -
+      // Without this, have to hit TAB first. Either way,
+      // JAWS fails to sync with focus properly, and fails
+      // to switch to forms mode or call out the control type/name.
+      document.addEventListener('DOMContentLoaded', function () {
+        const input = document.getElementById('ip1');
+        input.focus();
+      });
+
+      const form = document.findElementById('form');
+      form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          window.location.reload();
+      });
+    </script>
+  </body>
+</html>
